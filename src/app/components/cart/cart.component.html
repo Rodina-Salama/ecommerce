@@ -1,0 +1,54 @@
+<!-- <p>cart works!</p> -->
+<section >
+    <div   class="container bg-main-light p-4 mx w-75 my-4 rounded-3">
+
+        <div class="d-flex justify-content-between">
+<div>
+    <h2>Cart Shop</h2>
+    <p class="text-main">total price: {{cartDetails.totalCartPrice|currency :' EGP '}}</p>
+</div>
+<div>
+<button  [routerLink]="['/checkOut',cartDetails._id]" class="btn btn-primary"> check out <img src="./assets/images/visa-1.svg" alt=""></button>
+
+</div>
+</div>
+
+  <div class="row border-bottom p-2" *ngFor="let item of cartDetails.products ">
+    <div class="col-md-2">
+        <img [src]="item.product.imageCover" class="w-100" alt="">
+    </div>
+    <div class="col-md-10">
+       <div class="d-flex justify-content-between">
+        <div>
+            <h6>{{item.product.title}}</h6>
+            <span>{{item.price}}  EGP</span>
+            <p></p>
+           <button class="text-danger btn p-0 m-0" (click)="removeCartItem(item.product._id)"> <i class="fa-solid fa-trash"></i> Remove</button>
+        </div>
+
+
+        <div class="m-1">
+            <button  (click)="changeCount(item.product._id,item.count + 1)" class="btn border border-success"> + </button>
+            <span> {{item.count}} </span>
+            <button (click)="changeCount(item.product._id,item.count - 1)"  class="btn border border-success"> - </button>
+        </div>
+       </div>
+    </div>
+
+
+
+  </div>
+  <div class="text-center mt-2">
+    <button class="btn btn-outline-success"(click)="clear()"> Clear Your Cart </button>
+  </div>
+
+
+
+
+
+
+    </div>
+</section>
+
+
+

@@ -1,0 +1,13 @@
+<!-- <p>brands works!</p> -->
+<section class="my-4">
+    <div class="container">
+        <div class="row g-4">
+            <div *ngFor=" let brand of BrandData" class="col-sm-6 col-md-4 col-lg-3">
+                <div  role="button" class="  rounded-2 border p-2 mt-3 product">
+                    <img  height="250" class="w-100 " [src]="brand.image" alt="brand.name">
+                    <h3 class="text-center text-main h5">{{brand.name}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

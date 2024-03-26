@@ -52,8 +52,9 @@ ClearCart():Observable<any>{
 
 
 checkOut(cartId:string, userData:object):Observable<any>{
+  let currentRoute=window.location.host;
  
-  return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://rodina-salama.github.io/e-commerce/`,{
+  return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://${currentRoute}`,{
     
       shippingAddress:userData                                                                 
 },
